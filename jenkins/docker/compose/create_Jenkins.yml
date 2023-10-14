@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jenkins:
+    image: jenkins/jenkins:alpine
+    container_name: jenkins
+    ports:
+      - "8082:8080"
+    volumes:
+      - /home/fabian4613/volumes/jenkins/jenkins_home:/var/jenkins_home
+      - /home/fabian4613/volumes/jenkins/jenkins_plugins:/usr/share/jenkins/ref/plugins
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=true
+      - DOCKER_HOST=tcp://10.80.107.91:2375  # Cambia la dirección IP a 10.80.107.91
+    # Otros ajustes del contenedor Jenkins
+
